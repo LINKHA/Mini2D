@@ -6,9 +6,9 @@ import javax.swing.JFrame;
 public class Engine extends JFrame {
 	/// V1.0
 	private static final long serialVersionUID = 1L;
-	///
+	///Graphics screen
 	Screen screen;
-	///
+	///Key input
 	Input input;
 	public Engine() {
 		screen = new Screen();
