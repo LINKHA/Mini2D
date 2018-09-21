@@ -1,8 +1,6 @@
 package com.Mini2D.Engine;
 
-import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Image;
 
 import javax.swing.JPanel;
 
