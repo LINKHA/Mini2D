@@ -1,7 +1,7 @@
 package com.Mini2D.Engine;
 
 
-public class Application extends MiniObject{
+public class Application {
 	///game engine
 	private Engine engine;
 	///application is run
