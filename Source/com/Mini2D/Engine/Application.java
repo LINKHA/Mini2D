@@ -4,6 +4,8 @@ package com.Mini2D.Engine;
 public class Application {
 	///game engine
 	private Engine engine;
+	///Debug
+	private Debug debug;
 	///application is run
 	private boolean isRun;
 	///singleton instance
