@@ -13,6 +13,8 @@ public class Screen extends JPanel{
 	private int width;
 	private String image;
 	
+	///singleton instance
+	private static Screen instance;
 	/// V1.0
 	private static final long serialVersionUID = 1L;
 	//private static final Graphics Graphics = null;
@@ -20,13 +22,22 @@ public class Screen extends JPanel{
 	/**
 	* @brief : Constructed
 	*/
-	public Screen() {
+	private Screen() {
 		scale = 1;
 		x = 100;
 		y = 100;
 		width = 100;
 		height = 100;
 		image = "Assets/t.png";
+	}
+	/**
+	* @brief : Get instance ,If instance not create,create it.
+	*/
+	public static Screen GetInstance() {
+		if(instance==null) {
+			instance = new Screen();
+		}
+		return instance;
 	}
 	/**
 	* @brief : This function is called once per frame to render the component

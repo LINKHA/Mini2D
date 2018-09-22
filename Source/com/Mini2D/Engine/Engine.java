@@ -6,14 +6,13 @@ import javax.swing.JFrame;
 public class Engine extends JFrame {
 	/// V1.0
 	private static final long serialVersionUID = 1L;
-	///Graphics screen
-	Screen screen;
 	///Key input
 	Input input;
+	///
+	DebugScript script;
 	public Engine() {
-		screen = new Screen();
-		
-		add(screen);
+		script = new DebugScript();
+		add(Screen.GetInstance());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setFocusable(true);	
 		addKeyListener(input);	
@@ -36,6 +35,7 @@ public class Engine extends JFrame {
 	* @brief : Engine init if fail return false
 	*/
 	public boolean Init() {
+		script.Start();
 		return true;
 	}
 	/**
@@ -48,11 +48,11 @@ public class Engine extends JFrame {
 		//if(IO.GetButtonDown(Input.ESC))
 		//	return false;
 		/////////////////////////////////////////////////////////////////////////////////////////////
-		
+		script.Update();
 		
 		
 		//Graphics system run in frame
-		screen.repaint();
+		Screen.GetInstance().repaint();
 		
 		return true;
 	}
