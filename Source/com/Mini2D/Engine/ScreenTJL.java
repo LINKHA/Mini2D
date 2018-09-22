@@ -21,20 +21,19 @@ public class ScreenTJL extends JPanel{
 		g.drawImage(LoadImage.load("Assets/t.png"), x, y, a, b,null);
 
 	}
+	/**
+	* @brief : Zoon(0.5,0.5)就是图片缩放至一半，比例,然后显示
+	*/
 	public void Zoom(Graphics g,int i,int j){
-		/**
-		* @brief : Zoon(0.5,0.5)就是图片缩放至一半，比例,然后显示
-		*/
 		a=a*i;
 		b=b*j;
 		paintComponent(g);
 	}
 
- 
+	/**
+	* @brief : 改变图片的x，y轴起始位置,左顶点,然后显示
+	*/
 	void Position(Graphics g,int m,int n){
-		/**
-		* @brief : 改变图片的x，y轴起始位置,左顶点,然后显示
-		*/
 		x=m;
 		y=n;
 		paintComponent(g);
