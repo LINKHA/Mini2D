@@ -54,8 +54,6 @@ public class Engine extends JFrame {
 		//Graphics system run in frame
 		Screen.GetInstance().repaint();
 		
-		screen.Scale(1);
-		
 		return true;
 	}
 	/**
