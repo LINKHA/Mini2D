@@ -49,7 +49,7 @@ public class Engine extends JFrame {
 		//	return false;
 		/////////////////////////////////////////////////////////////////////////////////////////////
 		script.Update();
-		
+		script.SetPosition(10000, 100);
 		
 		//Graphics system run in frame
 		Screen.GetInstance().repaint();
