@@ -1,8 +1,27 @@
 package com.Mini2D.Engine;
 
-public class Engine extends MiniObject{
+import javax.swing.JFrame;
+
+
+public class Engine extends JFrame {
+	/// V1.0
+	private static final long serialVersionUID = 1L;
+	///Key input
+	Input input;
+	///
+	DebugScript script;
 	public Engine() {
-		
+		script = new DebugScript();
+		add(Screen.GetInstance());
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setFocusable(true);	
+		addKeyListener(input);	
+		setLocation((int)0, (int)0);
+		setSize((int)1000,(int)1000);
+		//Set whether the top button of the window is removed
+		setUndecorated(true);
+		//Set whether the VIsible is displayed
+		setVisible(true);
 	}
 	/**
 	* @brief : Registrat subsystem graphics and IO
@@ -10,12 +29,14 @@ public class Engine extends MiniObject{
 	public void RegistratSubSystem() {
 		//IO.Registrat();
 		//Graphics.Registrat();
+		
 	}
 	/**
 	* @brief : Engine init if fail return false
 	*/
 	public boolean Init() {
-		return false;
+		script.Start();
+		return true;
 	}
 	/**
 	* @brief : This method runs once per frame
@@ -27,16 +48,11 @@ public class Engine extends MiniObject{
 		//if(IO.GetButtonDown(Input.ESC))
 		//	return false;
 		/////////////////////////////////////////////////////////////////////////////////////////////
+		script.Update();
+		script.SetPosition(10000, 100);
 		
-		/////////////////////////////////////////////////////////////////////////////////////////////
-		////Graphics system run in frame
-		//
-		////Clear screen all image
-		//Graphics.Clear();
-		//
-		////Redraw the image and update the interaction based on the information
-		//Graphics.Draw();
-		/////////////////////////////////////////////////////////////////////////////////////////////
+		//Graphics system run in frame
+		Screen.GetInstance().repaint();
 		
 		return true;
 	}
@@ -44,7 +60,7 @@ public class Engine extends MiniObject{
 	* @brief : Engine Exit if fail return false
 	*/
 	public boolean Exit() {
-		return false;
+		return true;
 		
 	}
 }
