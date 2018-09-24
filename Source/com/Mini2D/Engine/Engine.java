@@ -6,16 +6,15 @@ import javax.swing.JFrame;
 public class Engine extends JFrame {
 	/// V1.0
 	private static final long serialVersionUID = 1L;
-	///Key input
-	Input input;
+
 	///
 	DebugScript script;
 	public Engine() {
-		script = new DebugScript();
+		script = DebugScript.GetInstance();
 		add(Screen.GetInstance());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setFocusable(true);	
-		addKeyListener(input);	
+		addKeyListener(Input.GetInstance());	
 		setLocation((int)0, (int)0);
 		setSize((int)1000,(int)1000);
 		//Set whether the top button of the window is removed
@@ -30,6 +29,7 @@ public class Engine extends JFrame {
 		//IO.Registrat();
 		//Graphics.Registrat();
 		
+
 	}
 	/**
 	* @brief : Engine init if fail return false
@@ -53,7 +53,9 @@ public class Engine extends JFrame {
 		
 		//Graphics system run in frame
 		Screen.GetInstance().repaint();
-		
+
+
+		Input.GetInstance().UpdateEnd();
 		return true;
 	}
 	/**
