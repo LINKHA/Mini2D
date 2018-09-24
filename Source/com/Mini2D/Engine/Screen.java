@@ -1,6 +1,8 @@
 package com.Mini2D.Engine;
 
 import java.awt.Graphics;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JPanel;
 
@@ -17,7 +19,7 @@ public class Screen extends JPanel{
 	private static Screen instance;
 	/// V1.0
 	private static final long serialVersionUID = 1L;
-	//private static final Graphics Graphics = null;
+	static List<GameObject> gameObjects = new ArrayList<GameObject>();
 	
 	/**
 	* @brief : Constructed
@@ -44,6 +46,8 @@ public class Screen extends JPanel{
 	*/
 	public synchronized void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		for(int i=0;i<gameObjects.size();i++) 
+			gameObjects.get(i).paint(g);
 		g.drawImage(LoadImage.load(image), x, y, width*scale, height*scale,null);
 		g.drawImage(LoadImage.load(image), x+100, y+100, width*scale, height*scale,null);
 		
@@ -64,5 +68,23 @@ public class Screen extends JPanel{
 	void Position(int m,int n){
 		x=m;
 		y=n;
+	}
+	/**
+	* @brief : 添加游戏对象直接添加到Screen中的gameObject
+	*/
+	public static void addToScreen(GameObject gameObj) {
+		if(gameObjects.size()==0) {
+			gameObjects.add(gameObj);
+			return;
+		}
+		int i=0;
+		for(GameObject object : gameObjects){
+			if(object.layout.getValue()>=gameObj.layout.getValue()) {
+				gameObjects.add(i,gameObj);
+				return;
+			}
+		} 
+		i++;
+		gameObjects.add(gameObj);
 	}
 }

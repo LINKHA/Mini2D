@@ -1,36 +1,23 @@
 package com.Mini2D.Engine;
 
 import java.awt.Graphics;
-import javax.swing.JPanel;
-import java.util.ArrayList;
-import java.util.List;
 
-public class GameObject extends JPanel{
+
+public class GameObject{
+	protected boolean visible = true;
 	private int m,n,a=1,b=1;
 	private String Image;
 	public Layout layout;
 	/// V1.0
-	private static final long serialVersionUID = 1L;
-	static List<GameObject> gameObjects = new ArrayList<GameObject>();
-	/**
-	* @brief : This function is called once per frame to render the component
-	*/
-	public synchronized void paintComponent(Graphics g) {
-		super.paintComponent(g);
-		
-		for(int i=0;i<gameObjects.size();i++) 
-			gameObjects.get(i).paint(g);
-			
-		g.drawImage(LoadImage.load(Image), m, n, a, b,null);
-
-	}
+	//private static final long serialVersionUID = 1L;
+	
 	
 	/**
 	* @brief : 输入图片名字，显示图片
 	*/
 	void PaintName(Graphics g,String name) {
 		name=Image;
-		paintComponent(g);
+		//paintComponent(g);
 	}
 	
 	/**
@@ -39,7 +26,7 @@ public class GameObject extends JPanel{
 	public void Size(Graphics g,int width,int height){
 		a=a*width;
 		b=b*height;
-		paintComponent(g);
+		//paintComponent(g);
 	}
 
 	/**
@@ -48,25 +35,11 @@ public class GameObject extends JPanel{
 	void Position(Graphics g,int x,int y){
 		m=x;
 		n=y;
-		paintComponent(g);
+		//paintComponent(g);
 	}
-	
-	/**
-	* @brief : 添加游戏对象直接添加到Screen中的gameObject
-	*/
-	public static void addToScreen(GameObject gameObj) {
-		if(gameObjects.size()==0) {
-			gameObjects.add(gameObj);
-			return;
+	public void paint(Graphics g) {
+		if(visible) {
+			g.drawImage(LoadImage.load(Image), m, n, a, b,null);
 		}
-		int i=0;
-		for(GameObject object : gameObjects){
-			if(object.layout.getValue()>=gameObj.layout.getValue()) {
-				gameObjects.add(i,gameObj);
-				return;
-			}
-		} 
-		i++;
-		gameObjects.add(gameObj);
 	}
 }
