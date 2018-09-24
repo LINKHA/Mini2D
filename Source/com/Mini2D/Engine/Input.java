@@ -5,7 +5,7 @@ import java.awt.event.KeyListener;
 
 public class Input implements KeyListener{
 	
-	static boolean keyDwon = false;
+	boolean keyDwon = false;
 	
 	private Input() {}
 	
@@ -28,20 +28,16 @@ public class Input implements KeyListener{
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		keyDwon=true;
+		keyDwon=false;
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		keyDwon = true;
-	}
 	
-	public void UpdateEnd() {
-		keyDwon = false;
 	}
+
 	
-	public static boolean getButtonDown(){
+	public boolean getButtonDown(){
 		if(keyDwon == true) {
 			return true;
 		}

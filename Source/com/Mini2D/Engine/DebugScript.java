@@ -39,7 +39,8 @@ public class DebugScript {
 		{
 			y=0;
 		}
-		
+		if(Input.GetInstance().getButtonDown())
+			System.out.println("as");
 
 		//Change picture position to 100 100
 		Screen.GetInstance().Position(x, y);	
