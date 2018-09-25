@@ -1,6 +1,9 @@
 package com.Mini2D.Engine;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 public class DebugScript {
 	GameObject obj1 = new GameObject();
 	GameObject obj2 = new GameObject();
@@ -18,12 +21,20 @@ public class DebugScript {
 	
 
 	static DebugScript instance;
+	static DebugScript example;
 	
 	public static DebugScript GetInstance() {
 		if(instance == null)
 			instance = new DebugScript();
 		return instance;
 	}
+	public static DebugScript GetExample() {
+		if(example == null)
+			example = new DebugScript();
+		return example;
+	}
+	
+
 	
 	public void Start() {
 		obj1.PaintName("Assets/t.png");
@@ -38,10 +49,21 @@ public class DebugScript {
 	} 
 	public void Update() {
 
+<<<<<<< HEAD
 		obj1.Position(x1, y1);
 
 		obj2.Position(x2, y2);
 		
+=======
+		//Change picture position to 100 100
+		Screen.GetInstance().Position(x, y);
+		//Set picture scale to 2
+		Screen.GetInstance().Scale(2);
+	}
+	void SetPosition(int x,int y) {
+		this.x = x;
+		this.y = y;
+>>>>>>> 20ce3c0ee2904ce7edfba993aee7d7b513a24681
 	}
 	
 	void ButtonDown(KeyEvent e) {
@@ -61,5 +83,12 @@ public class DebugScript {
 			x2-=3;
 		else if(e.getKeyCode()==KeyEvent.VK_RIGHT)
 			x2+=3;
+	}
+	void Button1Down(MouseEvent e) {
+		if(e.getButton()==MouseEvent.BUTTON1)
+			System.out.println("×ó¼ü");
+		else if(e.getButton()==MouseEvent.BUTTON3)
+			System.out.println("ÓÒ¼ü");
+			
 	}
 }

@@ -1,0 +1,37 @@
+ package com.Mini2D.Engine;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseEvent;
+
+
+public class Input1  implements MouseListener{
+	boolean mouseDwon =false;
+	
+	private Input1() {}
+	
+	static Input1 example;
+	
+	static Input1 GetExample() {
+		if(example==null) {
+			example=new Input1();
+		}
+		return example;
+	}
+	public void mousePressed(MouseEvent e) {
+		DebugScript.GetExample().Button1Down(e);
+		mouseDwon=true;
+	}
+	public void mouseReleased(MouseEvent e) {
+		mouseDwon=false;
+	}
+	public void mouseClicked(MouseEvent e)
+	{
+		
+	}
+	public boolean getButton1Down(){
+		if(mouseDwon == true) {
+			return true;
+		}
+		return false;
+	}
+
+}
