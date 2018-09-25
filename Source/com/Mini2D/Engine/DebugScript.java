@@ -49,21 +49,9 @@ public class DebugScript {
 	} 
 	public void Update() {
 
-<<<<<<< HEAD
 		obj1.Position(x1, y1);
 
 		obj2.Position(x2, y2);
-		
-=======
-		//Change picture position to 100 100
-		Screen.GetInstance().Position(x, y);
-		//Set picture scale to 2
-		Screen.GetInstance().Scale(2);
-	}
-	void SetPosition(int x,int y) {
-		this.x = x;
-		this.y = y;
->>>>>>> 20ce3c0ee2904ce7edfba993aee7d7b513a24681
 	}
 	
 	void ButtonDown(KeyEvent e) {

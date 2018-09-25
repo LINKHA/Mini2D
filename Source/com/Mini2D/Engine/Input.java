@@ -2,10 +2,7 @@ package com.Mini2D.Engine;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-<<<<<<< HEAD
-=======
 import java.awt.event.MouseEvent;
->>>>>>> 20ce3c0ee2904ce7edfba993aee7d7b513a24681
 import java.awt.event.MouseListener;
 
 public class Input implements KeyListener,MouseListener{
