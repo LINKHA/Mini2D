@@ -2,8 +2,9 @@ package com.Mini2D.Engine;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseListener;
 
-public class Input implements KeyListener{
+public class Input implements KeyListener,MouseListener{
 	
 	boolean keyDwon = false;
 	

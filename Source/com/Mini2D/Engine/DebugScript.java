@@ -2,13 +2,20 @@ package com.Mini2D.Engine;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 public class DebugScript {
-
+	GameObject obj1 = new GameObject();
+	GameObject obj2 = new GameObject();
+	
+	int x1=500,y1=500;
+	int w1=100,h1=100;
+	
+	int x2=100,y2 =100;
+	int w2=100,h2=100;
 	
 	public DebugScript(){
-
+		Screen.GetInstance().addToScreen(obj1);
+		Screen.GetInstance().addToScreen(obj2);
 	}
-	int x=10000,y=500;
-	int i=0;
+	
 
 	static DebugScript instance;
 	
@@ -19,52 +26,40 @@ public class DebugScript {
 	}
 	
 	public void Start() {
+		obj1.PaintName("Assets/t.png");
+		obj1.Position(x1, y1);
+		obj1.Size(w1, h1);
+		obj1.Scale(2, 2);
 		
-		
+		obj2.PaintName("Assets/t2.png");
+		obj2.Position(x2, y2);
+		obj2.Size(w2, h2);
+		obj2.Scale(2, 2);
 	} 
 	public void Update() {
-		if(x>=1000)
-		{
-			x=500;
-		}
-		if(x<=0)
-		{
-			x=0;
-		}
-		if(y>=1000)
-		{
-			y=500;
-		}
-		if(y<=0)
-		{
-			y=0;
-		}
 
-		//Change picture position to 100 100
-		Screen.GetInstance().Position(x, y);	
-		//Set picture scale to 2
-		Screen.GetInstance().Scale(2);
+		obj1.Position(x1, y1);
+
+		obj2.Position(x2, y2);
+		
 	}
-	void SetPosition(int x,int y) {
-		this.x = x;
-		this.y = y;
-	}
+	
 	void ButtonDown(KeyEvent e) {
 		if(e.getKeyChar()=='w')
-			y--;
+			y1-=3;
 		else if(e.getKeyChar()=='s')
-			y++;
+			y1+=3;
 		else if(e.getKeyChar()=='d')
-			x++;
+			x1+=3;
 		else if(e.getKeyChar()=='a')
-			x--;
+			x1-=3;
 		else if(e.getKeyCode()==KeyEvent.VK_UP)
-			y--;
+			y2-=3;
 		else if(e.getKeyCode()==KeyEvent.VK_DOWN)
-			y++;
+			y2+=3;
 		else if(e.getKeyCode()==KeyEvent.VK_LEFT)
-			x--;
+			x2-=3;
 		else if(e.getKeyCode()==KeyEvent.VK_RIGHT)
-			x++;
+			x2+=3;
 	}
 }

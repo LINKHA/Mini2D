@@ -48,9 +48,6 @@ public class Screen extends JPanel{
 		super.paintComponent(g);
 		for(int i=0;i<gameObjects.size();i++) 
 			gameObjects.get(i).paint(g);
-		g.drawImage(LoadImage.load(image), x, y, width*scale, height*scale,null);
-		g.drawImage(LoadImage.load(image), x+100, y+100, width*scale, height*scale,null);
-		
 	}
 	public void Scale(int scale) {
 		this.scale=scale;
@@ -72,8 +69,8 @@ public class Screen extends JPanel{
 	/**
 	* @brief : 添加游戏对象直接添加到Screen中的gameObject
 	*/
-	public static void addToScreen(GameObject gameObj) {
-		if(gameObjects.size()==0) {
+	public void addToScreen(GameObject gameObj) {
+		/*if(gameObjects.size()==0) {
 			gameObjects.add(gameObj);
 			return;
 		}
@@ -84,7 +81,7 @@ public class Screen extends JPanel{
 				return;
 			}
 		} 
-		i++;
+		i++;*/
 		gameObjects.add(gameObj);
 	}
 }
