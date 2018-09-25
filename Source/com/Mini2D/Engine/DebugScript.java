@@ -39,8 +39,6 @@ public class DebugScript {
 		{
 			y=0;
 		}
-		if(Input.GetInstance().getButtonDown())
-			System.out.println("as");
 
 		//Change picture position to 100 100
 		Screen.GetInstance().Position(x, y);	
@@ -53,20 +51,20 @@ public class DebugScript {
 	}
 	void ButtonDown(KeyEvent e) {
 		if(e.getKeyChar()=='w')
-			System.out.println("w");
+			y--;
 		else if(e.getKeyChar()=='s')
-			System.out.println("s");
+			y++;
 		else if(e.getKeyChar()=='d')
-			System.out.println("d");
+			x++;
 		else if(e.getKeyChar()=='a')
-			System.out.println("a");
+			x--;
 		else if(e.getKeyCode()==KeyEvent.VK_UP)
-			System.out.println("ио");
+			y--;
 		else if(e.getKeyCode()==KeyEvent.VK_DOWN)
-			System.out.println("об");
+			y++;
 		else if(e.getKeyCode()==KeyEvent.VK_LEFT)
-			System.out.println("вС");
+			x--;
 		else if(e.getKeyCode()==KeyEvent.VK_RIGHT)
-			System.out.println("ср");
+			x++;
 	}
 }
