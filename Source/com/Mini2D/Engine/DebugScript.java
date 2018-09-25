@@ -1,6 +1,9 @@
 package com.Mini2D.Engine;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 public class DebugScript {
 
 	
@@ -11,12 +14,20 @@ public class DebugScript {
 	int i=0;
 
 	static DebugScript instance;
+	static DebugScript example;
 	
 	public static DebugScript GetInstance() {
 		if(instance == null)
 			instance = new DebugScript();
 		return instance;
 	}
+	public static DebugScript GetExample() {
+		if(example == null)
+			example = new DebugScript();
+		return example;
+	}
+	
+
 	
 	public void Start() {
 		
@@ -41,7 +52,7 @@ public class DebugScript {
 		}
 
 		//Change picture position to 100 100
-		Screen.GetInstance().Position(x, y);	
+		Screen.GetInstance().Position(x, y);
 		//Set picture scale to 2
 		Screen.GetInstance().Scale(2);
 	}
@@ -66,5 +77,12 @@ public class DebugScript {
 			x--;
 		else if(e.getKeyCode()==KeyEvent.VK_RIGHT)
 			x++;
+	}
+	void Button1Down(MouseEvent e) {
+		if(e.getButton()==MouseEvent.BUTTON1)
+			System.out.println("×ó¼ü");
+		else if(e.getButton()==MouseEvent.BUTTON3)
+			System.out.println("ÓÒ¼ü");
+			
 	}
 }

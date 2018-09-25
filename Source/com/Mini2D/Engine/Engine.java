@@ -14,7 +14,8 @@ public class Engine extends JFrame {
 		add(Screen.GetInstance());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setFocusable(true);	
-		addKeyListener(Input.GetInstance());	
+		addKeyListener(Input.GetInstance());
+		addMouseListener(Input.GetInstance());	
 		setLocation((int)0, (int)0);
 		setSize((int)1000,(int)1000);
 		//Set whether the top button of the window is removed
