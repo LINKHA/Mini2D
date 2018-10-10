@@ -50,27 +50,39 @@ public class DebugScript {
 	public void Update() {
 
 		obj1.Position(x1, y1);
-
+		obj1.Size(w1, h1);
 		obj2.Position(x2, y2);
+		obj2.Size(w2, h2);
 	}
 	
 	void ButtonDown(KeyEvent e) {
 		if(e.getKeyChar()=='w')
 			y1-=3;
-		else if(e.getKeyChar()=='s')
+		if(e.getKeyChar()=='s')
 			y1+=3;
-		else if(e.getKeyChar()=='d')
+		if(e.getKeyChar()=='d')
 			x1+=3;
-		else if(e.getKeyChar()=='a')
+		if(e.getKeyChar()=='a')
 			x1-=3;
-		else if(e.getKeyCode()==KeyEvent.VK_UP)
+		if(e.getKeyCode()==KeyEvent.VK_UP)
 			y2-=3;
-		else if(e.getKeyCode()==KeyEvent.VK_DOWN)
+		if(e.getKeyCode()==KeyEvent.VK_DOWN)
 			y2+=3;
-		else if(e.getKeyCode()==KeyEvent.VK_LEFT)
+		if(e.getKeyCode()==KeyEvent.VK_LEFT)
 			x2-=3;
-		else if(e.getKeyCode()==KeyEvent.VK_RIGHT)
+		if(e.getKeyCode()==KeyEvent.VK_RIGHT)
 			x2+=3;
+		if(e.getKeyChar()=='r'){
+			w1+=3;
+			h1+=3;
+		}
+			
+		if(e.getKeyChar()=='f'){
+			w1-=3;
+			h1-=3;
+		}
+			
+		
 	}
 	void Button1Down(MouseEvent e) {
 		if(e.getButton()==MouseEvent.BUTTON1)
