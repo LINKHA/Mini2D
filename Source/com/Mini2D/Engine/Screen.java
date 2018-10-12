@@ -69,7 +69,7 @@ public class Screen extends JPanel{
 	/**
 	* @brief : 添加游戏对象直接添加到Screen中的gameObject
 	*/
-	public void addToScreen(GameObject gameObj) {
+	public static void addToScreen(GameObject gameObj) {
 		/*if(gameObjects.size()==0) {
 			gameObjects.add(gameObj);
 			return;
