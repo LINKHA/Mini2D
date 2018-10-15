@@ -8,10 +8,10 @@ public class DebugScript {
 	GameObject obj1 = new GameObject();
 	GameObject obj2 = new GameObject();
 	
-	int x1=500,y1=500;
+	float x1=500,y1=500;
 	int w1=100,h1=100;
 	
-	int x2=100,y2 =100;
+	float x2=100,y2 =100;
 	int w2=100,h2=100;
 	
 	public DebugScript(){
@@ -37,21 +37,21 @@ public class DebugScript {
 
 	
 	public void Start() {
-		obj1.PaintName("Assets/t.png");
-		obj1.Position(x1, y1);
+		obj1.setPaintName("Assets/t.png");
+		obj1.setPosition(x1, y1);
 		obj1.Size(w1, h1);
 		obj1.Scale(2, 2);
 		
-		obj2.PaintName("Assets/t2.png");
-		obj2.Position(x2, y2);
+		obj2.setPaintName("Assets/t2.png");
+		obj2.setPosition(x2, y2);
 		obj2.Size(w2, h2);
 		obj2.Scale(2, 2);
 	} 
 	public void Update() {
 
-		obj1.Position(x1, y1);
+		obj1.setPosition(x1, y1);
 		obj1.Size(w1, h1);
-		obj2.Position(x2, y2);
+		obj2.setPosition(x2, y2);
 		obj2.Size(w2, h2);
 	}
 	
