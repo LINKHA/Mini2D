@@ -13,6 +13,7 @@ public class GameObject{
 	private int scaleY = 1;
 	private String Image;
 	public Layout layout;
+	public int keyValue;
 
 	/**
 	* @brief : ÊäÈëÍ¼Æ¬Ãû×Ö£¬ÏÔÊ¾Í¼Æ¬

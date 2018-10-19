@@ -1,20 +1,26 @@
 package com.Mini2D.Engine;
 
+
 import java.awt.event.KeyEvent;
+
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
-public class Input implements KeyListener,MouseListener{
+public class Input implements KeyListener,MouseListener,MouseMotionListener{
 	
 	boolean keyDwon = false;
 	boolean MouseDwon=false;
+	private static boolean[] keys = new boolean[300];
+	
 	
 	
 	private Input() {}
 	
 	static Input instance;
 	static Input example;
+
 	
 	static Input GetExample() {
 		if(example == null) {
@@ -106,5 +112,15 @@ public class Input implements KeyListener,MouseListener{
 		// TODO Auto-generated method stub
 		MouseDwon=false;
 	}
+	public void mouseDragged(MouseEvent e) {
+		MouseDwon=true;
+	}
+	public void mouseMoved(MouseEvent e) {
+		// TODO Auto-generated method stub
+		MouseLocation.x =e.getX();
+		MouseLocation.y =e.getY();
+		MouseDwon=true;
+	}
+	
 	
 }

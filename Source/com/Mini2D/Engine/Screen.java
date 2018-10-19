@@ -84,4 +84,12 @@ public class Screen extends JPanel{
 		i++;*/
 		gameObjects.add(gameObj);
 	}
+	public static void deleteToScreen(int keyValue) {
+		for(GameObject compontent : gameObjects) {
+			if(keyValue==compontent.keyValue) {
+				gameObjects.remove(compontent);
+				return;
+			}
+		}
+	}
 }
