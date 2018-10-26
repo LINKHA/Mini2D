@@ -12,7 +12,7 @@ public abstract class ScriptSuper {
 	public abstract void Destruction() ;
 
 	public void print(Object object) {
-		Log.Print(object);
+		//Log.Print(object);
 	}
 	/*
 	 * 根据name找到指定脚本
@@ -25,7 +25,7 @@ public abstract class ScriptSuper {
 				}
 			}
 		}catch (Exception e) {
-			Log.Print("File to get Script");
+			//Log.Print("File to get Script");
 		}
 		
 		return null;
@@ -37,7 +37,7 @@ public abstract class ScriptSuper {
 		try {
 			return ScriptSystem.getSystem().getScripts() ;
 		} catch (Exception e) {
-			Log.Print("File to get Scripts");
+			//Log.Print("File to get Scripts");
 		}
 		return null;
 	}
@@ -49,7 +49,7 @@ public abstract class ScriptSuper {
 				getScriptForName(name).Init();
 			}
 		}catch (Exception e) {
-			Log.Print("File to On script");
+			//Log.Print("File to On script");
 		}
 	}
 }

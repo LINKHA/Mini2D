@@ -1,7 +1,9 @@
 package com.Mini2D.Engine;
 
-import java.awt.List;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ScriptSystem extends FrameSystem {
 	
@@ -23,7 +25,7 @@ public class ScriptSystem extends FrameSystem {
 	
 	public void scan(String packageName ,List<Class<?>> list) throws Exception{
 	    if(packageName==null) {
-	    	Log.Print("File to loading scripts");
+	    	//Log.Print("File to loading scripts");
 	    	return;
 	    }
 		String path=getSrcPath()+packageToDir(packageName);

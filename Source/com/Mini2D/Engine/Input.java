@@ -117,8 +117,8 @@ public class Input implements KeyListener,MouseListener,MouseMotionListener{
 	}
 	public void mouseMoved(MouseEvent e) {
 		// TODO Auto-generated method stub
-		MouseLocation.x =e.getX();
-		MouseLocation.y =e.getY();
+		//MouseLocation.x =e.getX();
+		//MouseLocation.y =e.getY();
 		MouseDwon=true;
 	}
 	

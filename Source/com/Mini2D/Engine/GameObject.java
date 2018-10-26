@@ -12,15 +12,10 @@ public class GameObject extends Component implements PanitcControl,PaintMove{
 	private int height;
 	private int scaleX = 1;
 	private int scaleY = 1;
-<<<<<<< HEAD
 	private String Image;
 	public Layout layout;
 	public int keyValue;
-=======
 	String image=null;
-
->>>>>>> 483aa2098a27e20168534c9eeacf8ec2ca152576
-
 	/**
 	* @brief : ÊäÈëÍ¼Æ¬Ãû×Ö£¬ÏÔÊ¾Í¼Æ¬
 	*/
