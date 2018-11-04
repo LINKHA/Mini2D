@@ -8,9 +8,9 @@ public class Engine extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	///
-	DebugScript script;
+//	DebugScript script;
 	public Engine() {
-		script = DebugScript.GetInstance();
+//		script = DebugScript.GetInstance();
 		add(Screen.GetInstance());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setFocusable(true);	
@@ -35,10 +35,10 @@ public class Engine extends JFrame {
 	/**
 	* @brief : Engine init if fail return false
 	*/
-	public boolean Init() {
-		script.Start();
-		return true;
-	}
+//	public boolean Init() {
+//		script.Start();
+//		return true;
+//	}
 	/**
 	* @brief : This method runs once per frame
 	*/
@@ -49,7 +49,7 @@ public class Engine extends JFrame {
 		//if(IO.GetButtonDown(Input.ESC))
 		//	return false;
 		/////////////////////////////////////////////////////////////////////////////////////////////
-		script.Update();
+//		script.Update();
 
 		
 		//Graphics system run in frame

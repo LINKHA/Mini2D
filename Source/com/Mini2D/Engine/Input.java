@@ -8,6 +8,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+import com.Mini2D.Game.DebugScript;
+
 public class Input implements KeyListener,MouseListener,MouseMotionListener{
 	
 	boolean keyDwon = false;

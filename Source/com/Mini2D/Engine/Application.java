@@ -64,7 +64,8 @@ public class Application{
 		timeSystem.addSystemInit();
 		scriptSystem.addSystemInit();
 		isRun = true;
-		return engine.Init();
+//		return engine.Init();
+		return isRun;
 	}
 	/*每帧调用此方法*/
 	public void tickComponent() {

@@ -41,6 +41,7 @@ public abstract class ScriptSuper {
 		}
 		return null;
 	}
+	//Æô¶¯Ä³¸ö½Å±¾
 	public void ScriptOn(String name) {
 		try {
 			ScriptSuper script = getScriptForName(name);
