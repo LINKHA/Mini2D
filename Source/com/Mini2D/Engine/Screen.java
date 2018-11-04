@@ -19,6 +19,7 @@ public class Screen extends JPanel{
 	private static Screen instance;
 	/// V1.0
 	private static final long serialVersionUID = 1L;
+	Application application;
 	static List<GameObject> gameObjects = new ArrayList<GameObject>();
 	
 	/**
@@ -31,6 +32,9 @@ public class Screen extends JPanel{
 		width = 100;
 		height = 100;
 		image = "Assets/t.png";
+	}
+	public Screen(Application application) {
+		this.application=application;
 	}
 	/**
 	* @brief : Get instance ,If instance not create,create it.

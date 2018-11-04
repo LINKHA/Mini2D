@@ -7,15 +7,17 @@ import java.awt.Image;
 
 public class GameObject extends Component implements PanitcControl,PaintMove{
 	protected boolean visible = true;
-	private Vector position=new Vector();
+	private Vector2 position=new Vector2();
+	Vector2 targetPosition;
 	private int width;
 	private int height;
 	private int scaleX = 1;
 	private int scaleY = 1;
-	private String Image;
+	// private String Image;
 	public Layout layout;
 	public int keyValue;
 	String image=null;
+	Sprite sprite = null;
 	/**
 	* @brief :  ‰»ÎÕº∆¨√˚◊÷£¨œ‘ æÕº∆¨
 	*/
@@ -54,10 +56,10 @@ public class GameObject extends Component implements PanitcControl,PaintMove{
 		this.layout=layout;
 		Screen.addToScreen(this);
 	}
-	public GameObject(String image,Vector position,int width,int height,Layout layout) {
+	public GameObject(String image,Vector2 position,int width,int height,Layout layout) {
 		this(image,position.x,position.y,width,height,layout);
 	}
-	public GameObject(String image,Vector position,int width,int height) {
+	public GameObject(String image,Vector2 position,int width,int height) {
 		this(image,position.x,position.y,width,height,Layout.Default);
 	}	
 	public GameObject(float x,float y,int width,int height,Layout layout) {
@@ -68,10 +70,10 @@ public class GameObject extends Component implements PanitcControl,PaintMove{
 		this.layout=layout;
 		Screen.addToScreen(this);
 	}	
-	public GameObject(Vector position,int width,int height,Layout layout) {
+	public GameObject(Vector2 position,int width,int height,Layout layout) {
 		this(position.x,position.y,width,height,layout);
 	}	
-	public GameObject(Vector position,int width,int height) {
+	public GameObject(Vector2 position,int width,int height) {
 		this(position.x,position.y,width,height,Layout.Default);
 	}	
 	public void paint(Graphics g) {
@@ -88,8 +90,9 @@ public class GameObject extends Component implements PanitcControl,PaintMove{
 		
 	}
 	
-	public void addSprite() {
-		
+	public void addSprite(Sprite sprite) {
+		this.sprite = sprite;
+		image = sprite.imageName;
 	}
 	
 	public void addAnimator() {
@@ -97,22 +100,29 @@ public class GameObject extends Component implements PanitcControl,PaintMove{
 	}
 	
 	public void move(float x,float y) {
-		
+		position.x=x;
+		position.y=y;
 	}
 	
-	public void move(Vector vec) {
-		
+	public void move(Vector2 vec) {
+		move(vec.x,vec.y);
 	}
 	
-	public void moveTo(Vector position,float speed) {
-		
+	public void moveTo(Vector2 position,float speed) {
+		targetPosition=position;
+		Vector2 countVec=new Vector2(this.position.sub(targetPosition));
+		if(targetPosition!=this.position)
+			move(countVec.direction().x*speed,countVec.direction().y*speed);
 	}
 	
-	public void moveAdd(Vector distance,float speed) {
-		
+	public void moveAdd(Vector2 distance,float speed) {
+		targetPosition=position.add(distance);
+		Vector2 countVec=new Vector2(this.position.sub(targetPosition));
+		if(targetPosition!=this.position)
+			move(countVec.direction().x*speed,countVec.direction().y*speed);
 	}
 	
-	public void SetPosition(Vector position) {
+	public void SetPosition(Vector2 position) {
 		this.position=position;
 	}	
 	public void setPosition(float x,float y)
@@ -120,7 +130,7 @@ public class GameObject extends Component implements PanitcControl,PaintMove{
 		position.x=x;
 		position.y=y;
 	}
-	public Vector getPosition() {
+	public Vector2 getPosition() {
 		return position;
 	}
 	

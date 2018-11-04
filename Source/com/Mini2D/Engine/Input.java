@@ -18,6 +18,10 @@ public class Input implements KeyListener,MouseListener,MouseMotionListener{
 	
 	private Input() {}
 	
+	public Input(Application application) {
+		// TODO Auto-generated constructor stub
+	}
+
 	static Input instance;
 	static Input example;
 

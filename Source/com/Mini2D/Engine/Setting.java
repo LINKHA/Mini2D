@@ -16,5 +16,5 @@ public class Setting {
 	//设置窗口顶部按钮是否去除
 	//public static boolean WIndwUndecorated = true;
 	//系统每秒理论帧数(0,1000)
-	//public static int FPS = 100;
+	public static int FPS = 100;
 }
