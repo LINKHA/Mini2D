@@ -29,8 +29,10 @@ public class ScriptSystem extends FrameSystem {
 	    	return;
 	    }
 		String path=getSrcPath()+packageToDir(packageName);
+
 	    File dir=new File(path);
 	    File[] files=dir.listFiles();
+
 	    Class<?> cla=null;
 	    for(File f:files){
 	        if(f.isDirectory()){
@@ -89,6 +91,7 @@ public class ScriptSystem extends FrameSystem {
 			if(s.enable)
 				s.Init();
 		}
+
 	}
 
 	@Override

@@ -10,123 +10,109 @@ import java.awt.event.MouseMotionListener;
 
 import com.Mini2D.Game.DebugScript;
 
+
+
 public class Input implements KeyListener,MouseListener,MouseMotionListener{
-	
-	boolean keyDwon = false;
-	boolean MouseDwon=false;
+
+	static boolean leftMouseDown = false;
+	static boolean rightMouseDown = false;
+	private static boolean hitMouse = false;
+	private static boolean releasedMouse = false;
 	private static boolean[] keys = new boolean[300];
-	
-	
+	private static Vector2 MouseLocation = new Vector2();
+	static Input instance;
 	
 	private Input() {}
-	
-	public Input(Application application) {
-		// TODO Auto-generated constructor stub
-	}
-
-	static Input instance;
-	static Input example;
-
-	
-	static Input GetExample() {
-		if(example == null) {
-			example = new Input();
-		}
-		return example; 
-	}
-	
-	static Input GetInstance() {
+	public static Input GetInstance() {
 		if(instance == null) {
 			instance = new Input();
 		}
 		return instance; 
 	}
-	
-	
-	
 	@Override
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		DebugScript.GetInstance().ButtonDown(e);
-		keyDwon = true;
+		keys[e.getKeyCode()] = true;
 	}
-	
-	
-
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		keyDwon=false;
+		keys[e.getKeyCode()] = false;
 	}
-	
-
-
 	@Override
 	public void keyTyped(KeyEvent e) {
 	
 	}
-	
-	
-	
-	public boolean getButtonDown(){
-		if(keyDwon == true) {
-			return true;
-		}
-		return false;
-	}
-
-
-
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		MouseDwon=true;
-		
-	
-		
+
 	}
-
-
-
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
-
-
-
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
-
-
-
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		DebugScript.GetExample().Button1Down(e);
-		MouseDwon=true;
+		hitMouse = true;
+		if(e.isMetaDown()) {
+			rightMouseDown = true;
+		}
+		else {
+			leftMouseDown = true;
+		}
 	}
-
-
-
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		MouseDwon=false;
+		releasedMouse = true;
+		if(e.isMetaDown()) {
+			rightMouseDown = false;
+		}
+		else {
+			leftMouseDown = false;
+		}
 	}
 	public void mouseDragged(MouseEvent e) {
-		MouseDwon=true;
+		
 	}
 	public void mouseMoved(MouseEvent e) {
 		// TODO Auto-generated method stub
-		//MouseLocation.x =e.getX();
-		//MouseLocation.y =e.getY();
-		MouseDwon=true;
+		MouseLocation.x =e.getX();
+		MouseLocation.y =e.getY();
+
 	}
-	
-	
+
+	public static boolean getButtonDown(int indexKey){
+		if(keys[indexKey] == true) {
+			return true;
+		}
+		return false;
+	}
+
+	public static boolean leftMouseDown() {
+		return leftMouseDown;
+	}
+	public static boolean rightMouseDown() {
+		return rightMouseDown;
+	}
+	public static Vector2 getMouseLocation() {
+		return MouseLocation;
+	}
+	public static boolean hitMouse() {
+		if(hitMouse) {
+			hitMouse = false;
+			return true;
+		}
+		return false;
+	}
+	public static boolean releasedMouse() {
+		if(releasedMouse) {
+			releasedMouse = false;
+			return true;
+		}
+		return false;
+	}
 }

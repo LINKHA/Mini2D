@@ -9,7 +9,7 @@ public class Application{
 	public Screen screen;
 	///application is run
 	private boolean isRun;
-	public Input input = new Input(this);
+	public Input input;
 	///singleton instance
 	private static Application instance;
 	/**
@@ -27,6 +27,7 @@ public class Application{
 		_appStates = AppStates.INIT;
 		screen = new Screen(this);
 		engine = new Engine();
+		input = Input.GetInstance();
 		isRun = false;
 		
 		scriptSystem = ScriptSystem.getSystem();
@@ -91,7 +92,7 @@ public class Application{
 //			if(bMouseDown == true) {
 //				mouseDown();
 //			}
-//			tickComponent();
+			tickComponent();
 			screen.repaint();
 			try {
 				Thread.sleep((long)1000.0/Setting.FPS);
