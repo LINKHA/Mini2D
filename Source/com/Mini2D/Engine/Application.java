@@ -41,7 +41,7 @@ public class Application{
 			instance = new Application();
 		}
 		return instance;
-	}
+	} 
 	/**
 	* @brief : Application run
 	*/
