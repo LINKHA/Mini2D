@@ -28,7 +28,7 @@ public class UISystem extends FrameSystem{
 			
 		 for(UIComponent compontent :compontents ) {
 
-			 if(compontent.isDown == false && isHitComfpant(compontent)) {
+			 if(compontent.isDown == false /*&& isHitComfpant(compontent)*/) {
 				 compontent.isDown = true;
 				 comp.add(compontent);
 			 }
@@ -85,14 +85,12 @@ public class UISystem extends FrameSystem{
 		return instance;
 	}
 
-	@Override
-	public void addSystemMousePressed() {	
+	public void mousePressed() {	
 
 		performPressedCompontents();
 	}
 
-	@Override
-	public void addSystemMouseReleased() {
+	public void mouseReleased() {
 		performReleasedCompontents();
 	}
 }

@@ -1,6 +1,5 @@
 package com.Mini2D.Engine;
 
-
 public class Application{	
 	//private static final long seriaLVersiononUID = 1L;
 	///game engine
@@ -18,6 +17,8 @@ public class Application{
 	*/
 	FrameSystem timeSystem;
 	FrameSystem scriptSystem;
+	FrameSystem uiSystem;
+	FrameSystem animationSystem;
 	
 	public double deltaTime = 0.0f;
 	public int FPS = 0;
@@ -25,13 +26,15 @@ public class Application{
 	
 	private Application() throws Exception {
 		_appStates = AppStates.INIT;
-		screen = new Screen(this);
+		screen = new Screen();
 		engine = new Engine();
 		input = Input.GetInstance();
 		isRun = false;
 		
 		scriptSystem = ScriptSystem.getSystem();
 		timeSystem = TimeSystem.getSystem();
+		uiSystem = UISystem.getSystem();
+		animationSystem = AnimationSystem.getSystem();
 	}
 	/**
 	* @throws Exception 
@@ -71,6 +74,7 @@ public class Application{
 	/*每帧调用此方法*/
 	public void tickComponent() {
 		scriptSystem.addSystemRunLoop();
+		animationSystem.addSystemRunLoop();
 	}
 	/*游戏结束调用此方法*/
 	public void destruction() {
@@ -127,4 +131,5 @@ public class Application{
 		//Log("Application successful exit!");
 		System.exit(0);
 	}
+
 }

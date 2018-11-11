@@ -1,6 +1,6 @@
 package com.Mini2D.Engine;
 
-public abstract class UIComponent {
+public abstract class UIComponent extends Component {
 	public Vector2 location;
 	public int width;
 	public int height;

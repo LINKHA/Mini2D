@@ -8,7 +8,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-import com.Mini2D.Game.DebugScript;
+import com.Mini2D.Game.Menu;
 
 
 
@@ -60,9 +60,11 @@ public class Input implements KeyListener,MouseListener,MouseMotionListener{
 		hitMouse = true;
 		if(e.isMetaDown()) {
 			rightMouseDown = true;
+			UISystem.getSystem().mousePressed();
 		}
 		else {
 			leftMouseDown = true;
+			UISystem.getSystem().mousePressed();
 		}
 	}
 	@Override
@@ -70,9 +72,11 @@ public class Input implements KeyListener,MouseListener,MouseMotionListener{
 		releasedMouse = true;
 		if(e.isMetaDown()) {
 			rightMouseDown = false;
+			UISystem.getSystem().mouseReleased();
 		}
 		else {
 			leftMouseDown = false;
+			UISystem.getSystem().mouseReleased();
 		}
 	}
 	public void mouseDragged(MouseEvent e) {

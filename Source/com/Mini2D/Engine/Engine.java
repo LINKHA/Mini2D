@@ -2,22 +2,21 @@ package com.Mini2D.Engine;
 
 import javax.swing.JFrame;
 
-
 public class Engine extends JFrame {
 	/// V1.0
 	private static final long serialVersionUID = 1L;
 
-	///
-//	DebugScript script;
+	public Screen screen;
+	
 	public Engine() {
-//		script = DebugScript.GetInstance();
-		add(Screen.GetInstance());
+		screen = new Screen();
+		add(screen);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setFocusable(true);	
 		addKeyListener(Input.GetInstance());
 		addMouseListener(Input.GetInstance());	
-		setLocation((int)0, (int)0);
-		setSize((int)1000,(int)1000);
+		setLocation((int)Setting.WindowRect.x, (int)Setting.WindowRect.y);
+		setSize((int)Setting.WindowSize.x,(int)Setting.WindowSize.y);
 		//Set whether the top button of the window is removed
 		setUndecorated(true);
 		//Set whether the VIsible is displayed
@@ -29,32 +28,18 @@ public class Engine extends JFrame {
 	public void RegistratSubSystem() {
 		//IO.Registrat();
 		//Graphics.Registrat();
-		
-
 	}
 	/**
 	* @brief : Engine init if fail return false
 	*/
-//	public boolean Init() {
-//		script.Start();
-//		return true;
-//	}
+	public boolean Init() {
+		return true;	
+	}
 	/**
 	* @brief : This method runs once per frame
 	*/
 	public boolean RunFrame() {
-		/////////////////////////////////////////////////////////////////////////////////////////////
-		////Press the esc button to exit the loop
-		//
-		//if(IO.GetButtonDown(Input.ESC))
-		//	return false;
-		/////////////////////////////////////////////////////////////////////////////////////////////
-//		script.Update();
-
-		
-		//Graphics system run in frame
-		Screen.GetInstance().repaint();
-
+		screen.repaint();
 		return true;
 	}
 	/**

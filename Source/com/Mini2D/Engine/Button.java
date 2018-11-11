@@ -2,10 +2,7 @@ package com.Mini2D.Engine;
 
 import java.awt.Image;
 
-import pers.LINKH.Game.UISystem;
-import pers.LINKH.Game.Compontent.GameObject;
-
-public class Button {
+public class Button extends UIComponent{
 	boolean mouseHit = false;
 	boolean mouseUp = false;
 	boolean mouseDown = false;

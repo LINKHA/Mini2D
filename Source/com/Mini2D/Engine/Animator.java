@@ -17,6 +17,9 @@ public class Animator extends Component {
 	private int goTime = 0;
 	private int goFrame = 0;
 	public Animator(List<Image> clips,int delayUnits,GameObject gameObject) {
+		
+		Log.Print(clips.size());
+		
 		this.gameObject = gameObject;
 		this.delayUnits = delayUnits;
 		this.clips = clips;
@@ -33,8 +36,7 @@ public class Animator extends Component {
 			if(goFrame > clips.size()-1) {
 				goFrame = 0;
 			}
-			
-			gameObject.image2 = clips.get(goFrame);
+			gameObject.image = clips.get(goFrame);
 			goFrame++;
 		}
 	}
