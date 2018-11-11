@@ -17,6 +17,10 @@ public class GameObject extends Component implements PanitcControl,PaintMove{
 	public Layout layout;
 	public int keyValue;
 	String image=null;
+	public Image image2 = null;
+	
+	
+	
 	Sprite sprite = null;
 	/**
 	* @brief :  ‰»ÎÕº∆¨√˚◊÷£¨œ‘ æÕº∆¨
@@ -95,7 +99,7 @@ public class GameObject extends Component implements PanitcControl,PaintMove{
 		image = sprite.imageName;
 	}
 	
-	public void addAnimator() {
+	public void addAnimator(Animator animator) {
 		
 	}
 	

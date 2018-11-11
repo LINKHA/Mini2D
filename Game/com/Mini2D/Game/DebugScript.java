@@ -1,9 +1,13 @@
 package com.Mini2D.Game;
 
+import com.Mini2D.Engine.Animator;
 import com.Mini2D.Engine.GameObject;
 import com.Mini2D.Engine.Input;
 import com.Mini2D.Engine.KeyCodeIndex;
+import com.Mini2D.Engine.LoadAnimation;
+import com.Mini2D.Engine.ScreenSize;
 import com.Mini2D.Engine.ScriptSuper;
+import com.Mini2D.Engine.Sprite;
 import com.Mini2D.Engine.Vector2;
 
 public class DebugScript extends ScriptSuper{	
@@ -15,7 +19,7 @@ public class DebugScript extends ScriptSuper{
 	
 	GameObject obj1;
 	GameObject obj2;
-	
+	GameObject gameObject;
 	String name1="Assets/t.png";
 	String name2="Assets/t2.png";
 	Vector2 Vec1 = new Vector2(500,500);
@@ -26,6 +30,14 @@ public class DebugScript extends ScriptSuper{
 	public void Init() {
 		obj1 = new GameObject(name1, Vec1, w1, h1);
 		obj2 = new GameObject(name2, Vec2, w2, h2);
+		
+		
+		
+		
+
+		gameObject =new GameObject( new Vector2(ScreenSize.WIDTH/2,ScreenSize.HEIGHT/2), 300, 300);
+		gameObject.addSprite(new Sprite("Assets/bird2_001.png",gameObject));
+		gameObject.addAnimator(new Animator(LoadAnimation.load("Assets/bird2_00",".png", 1, 3),15,  gameObject));
 	}
 	@Override
 	public void RunLoop() {
