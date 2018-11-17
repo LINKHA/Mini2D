@@ -47,7 +47,7 @@ public class Animator extends Component {
 	
 	
 	@Override
-	public void Destroy() {
+	public void Destory() {
 		AnimationSystem.getSystem().deleteAnimator(keyValue);
 	}
 }

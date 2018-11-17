@@ -41,7 +41,7 @@ public class Game extends ScriptSuper{
 		gameObject =new GameObject( new Vector2(ScreenSize.WIDTH/2 - 500,ScreenSize.HEIGHT/2), 200, 200);
 		gameObject.addSprite(new Sprite("Assets/bird2_001.png",gameObject));
 		gameObject.addAnimator(new Animator(LoadAnimation.load("Assets/bird2_00",".png", 1, 3),15,  gameObject));
-		//gameObject.addCollider(new Collider(gameObject));
+		gameObject.addCollider(new Collider(gameObject));
 		
 		MainMenuGround = new GameObject( new Vector2(ScreenSize.WIDTH/2,ScreenSize.HEIGHT/2), ScreenSize.WIDTH, ScreenSize.HEIGHT,Layout.BackGround);
 		MainMenuGround.addSprite(new Sprite("Assets/bg_day.png",MainMenuGround));
@@ -90,11 +90,11 @@ public class Game extends ScriptSuper{
 		int location = Random.Rang(0,200);
 		GameObject up = new GameObject( new Vector2(ScreenSize.WIDTH +100,ScreenSize.HEIGHT -100 + location), 200, 500,Tag.Enemy,Layout.Sprite);
 		up.addSprite(new Sprite("Assets/pipe_up.png",up));
-		//up.addCollider(new Collider(up));
+		up.addCollider(new Collider(up));
 		
 		GameObject down = new GameObject( new Vector2(ScreenSize.WIDTH  +100 ,-100 + location), 200, 500,Tag.Enemy,Layout.Sprite);
 		down.addSprite(new Sprite("Assets/pipe_down.png",down));
-		//down.addCollider(new Collider(down));
+		down.addCollider(new Collider(down));
 		Pair pipe =new Pair(up, down);
 		
 		pipes.add(pipe);
@@ -103,8 +103,8 @@ public class Game extends ScriptSuper{
 	void DeletePipe() {
 		for(Pair p : pipes) {
 			if(p.Down.getPosition().x<-100){
-				p.Down.Destroy();
-				p.Up.Destroy();
+				p.Down.Destory();
+				p.Up.Destory();
 				pipes.remove(p);
 				break;
 			}
@@ -128,21 +128,21 @@ public class Game extends ScriptSuper{
 	}
 	
 	void DetermineCollide() {
-		//if(gameObject.getCollision().hit(Tag.Enemy)) {
-		//	ClearScene();
-		//}
-		//if(gameObject.getPosition().y >=ScreenSize.HEIGHT  || gameObject.getPosition().y <=0) {
-		//	ClearScene();
-		//}
+		if(gameObject.getCollision().hit(Tag.Enemy)) {
+			ClearScene();
+		}
+		if(gameObject.getPosition().y >=ScreenSize.HEIGHT  || gameObject.getPosition().y <=0) {
+			ClearScene();
+		}
 	}
 	
 	void ClearScene() {
-		gameObject.Destroy();
-		MainMenuGround.Destroy();
-		MainMenuGround2.Destroy();
+		gameObject.Destory();
+		MainMenuGround.Destory();
+		MainMenuGround2.Destory();
 		for(Pair p : pipes) {
-			p.Down.Destroy();
-			p.Up.Destroy();
+			p.Down.Destory();
+			p.Up.Destory();
 		}
 		pipes.clear();
 		super.enable = false;

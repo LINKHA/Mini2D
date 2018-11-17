@@ -15,7 +15,7 @@ public class Sprite extends Component{
 		this.gameObject = gameObject;
 	}
 	@Override
-	public void Destroy() {
+	public void Destory() {
 		// TODO Auto-generated method stub
 		
 	}

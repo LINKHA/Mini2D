@@ -56,7 +56,7 @@ public class Button extends UIComponent{
 		return false;
 	}
 	@Override
-	public void Destroy() {
+	public void Destory() {
 		// TODO Auto-generated method stub
 		UISystem.getSystem().deleteButton(keyValue);
 	}

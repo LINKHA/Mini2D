@@ -3,9 +3,6 @@ package com.Mini2D.Engine;
 import java.awt.Graphics;
 import java.awt.Image;
 
-
-
-
 public class GameObject extends Component implements PanitcControl,PaintMove{
 	protected boolean visible = true;
 	private Vector2 position = new Vector2();
@@ -13,7 +10,7 @@ public class GameObject extends Component implements PanitcControl,PaintMove{
 	private int height;
 	Vector2 targetPosition;
 	Image image = null;
-	//Collision collider = null;
+	Collision collider = null;
 	Button button = null;
 	Sprite sprite = null;
 	Animator animator = null;
@@ -77,10 +74,10 @@ public class GameObject extends Component implements PanitcControl,PaintMove{
 			g.drawImage(image, (int)(position.x-width/2.0f), (int)(position.y-height/2.0f), width, height,null);
 		}
 	}
-	//public void addCollider(Collision collider) {
-	//	this.collider = collider;
-	//	this.collider.tag =tag;
-	//}
+	public void addCollider(Collision collider) {
+		this.collider = collider;
+		this.collider.tag =tag;
+	}
 	public void addButton(Button button) {
 		this.button = button;
 	}
@@ -95,9 +92,9 @@ public class GameObject extends Component implements PanitcControl,PaintMove{
 	public void move(float deltaX,float deltaY) {
 		position.x+=deltaX;
 		position.y+=deltaY;
-	//	if(collider!=null) {
-	//		collider.move();
-	//	}
+		if(collider!=null) {
+			collider.move();
+		}
 	}
 	@Override
 	public void move(Vector2 vec) {
@@ -126,9 +123,9 @@ public class GameObject extends Component implements PanitcControl,PaintMove{
 	}
 	public void setTag(Tag tag) {
 		this.tag = tag;
-	//	if(collider!=null) {
-	//		collider.tag =tag;
-	//	}
+		if(collider!=null) {
+			collider.tag =tag;
+		}
 	}
 	public void setImage(Image changeImage) {
 		image = changeImage;
@@ -151,9 +148,9 @@ public class GameObject extends Component implements PanitcControl,PaintMove{
 	public int getkeyValue() {
 		return keyValue;
 	}
-	//public Collision getCollision() {
-	//	return collider;
-	//}
+	public Collision getCollision() {
+		return collider;
+	}
 	public Image getImage() {
 		return image;
 	}
@@ -167,18 +164,18 @@ public class GameObject extends Component implements PanitcControl,PaintMove{
 		return sprite;
 	}
 	@Override
-	public void Destroy() {
+	public void Destory() {
 		if(visible) {
 			Screen.deleteToScreen(keyValue);
 			visible = false;
-	//		if(collider!=null) {
-	//			collider.Destroy();
-	//		}
+			if(collider!=null) {
+				collider.Destory();
+			}
 			if(animator!=null) {
-				animator.Destroy();
+				animator.Destory();
 			}
 			if(button!=null) {
-				button.Destroy();
+				button.Destory();
 			}
 		}
 	}

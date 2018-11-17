@@ -63,10 +63,10 @@ public class Menu extends ScriptSuper{
 			MainMenuGround2.setPosition(ScreenSize.WIDTH* 1.5f,ScreenSize.HEIGHT/2);
 		///删除本场景所有对象并设置脚本enable 开启Game脚本
 		if(buttonLaunch.getButton().mouseUp()) {
-			buttonLaunch.Destroy();
-			gameObject.Destroy();
-			MainMenuGround.Destroy();
-			MainMenuGround2.Destroy();
+			buttonLaunch.Destory();
+			gameObject.Destory();
+			MainMenuGround.Destory();
+			MainMenuGround2.Destory();
 			super.enable = false;
 			ScriptOn("Game");
 		}
